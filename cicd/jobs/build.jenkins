@@ -14,6 +14,10 @@ pipelineJob('build-jenkins-spring-boot-k8s-jenkinsop-example') {
         }
     }
 
+    triggers {
+             githubPush()
+    }
+
     definition {
         cpsScm {
             scm {

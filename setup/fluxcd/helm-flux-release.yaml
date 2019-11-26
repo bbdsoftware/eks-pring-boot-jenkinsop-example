@@ -1,0 +1,13 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: demo-ricardo
+  namespace: default
+spec:
+  releaseName: demo-ricardo
+  chart:
+    repository: http://helm-chartmuseum-chartmuseum.jenkinsci.svc.cluster.local:8080
+    version: 0.1.0
+    name: spring-boot-k8s-jenkinsop-example
+  values:
+    replicaCount: 1
