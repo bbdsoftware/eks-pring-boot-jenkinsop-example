@@ -1,0 +1,68 @@
+server.port: 8080
+spring:
+  application.name: Reference
+  datasource.url: jdbc:h2:mem:testdb
+  datasource.driverClassName: org.h2.Driver
+  datasource.username: sa
+  datasource.password: password
+  jpa.database-platform: org.hibernate.dialect.H2Dialect
+  jpa.hibernate.ddl-auto: update
+  jpa.generate-ddl: true
+
+bbd:
+  core:
+    swagger:
+      packages: com.bbdsoftware
+
+service:
+  feature:
+    example: false
+  props:
+    clients:
+      github:
+        baseUrl: https://api.github.com
+  schdeule:
+    sendsms:
+      cron: "0 */30 * ? * *"
+
+logging:
+  level:
+    com.bayport: INFO
+    org.springframework: ERROR
+
+bayport.reference:
+  default-name: World
+
+---
+spring:
+  profiles: prod
+
+  logging:
+    level:
+      com.bayport: INGO
+      org.springframework: INFO
+---
+spring:
+  profiles: development
+  flyway:
+    enabled: false
+
+---
+spring:
+  profiles: development
+logging:
+  level:
+    com.bayport: DEBUG
+    org.springframework: ERROR
+
+---
+spring:
+  profiles: development-localstack
+  jpa.hibernate.ddl-auto: update
+  jpa.generate-ddl: true
+  jpa.database-platform: org.hibernate.dialect.MariaDBDialect
+  datasource:
+    url: jdbc:mariadb://localhost:3306/test?useMysqlMetadata=true
+    username: root
+    password: developer
+
