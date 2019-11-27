@@ -14,7 +14,6 @@ public class GitHubConfig {
     }
 
     @Bean
-    //Error Decoder
     public ErrorDecoder errorDecoder() {
         return new BBDFeignDefaultErrorDecoder();
     }

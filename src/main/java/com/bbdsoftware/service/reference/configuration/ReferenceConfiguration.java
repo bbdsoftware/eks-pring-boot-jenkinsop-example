@@ -6,7 +6,7 @@ import org.springframework.context.annotation.*;
 
 @Configuration
 @EnableConfigurationProperties(ReferenceConfiguration.class)
-@ConfigurationProperties(prefix = "bayport.reference")
+@ConfigurationProperties(prefix = "bbdsoftware.reference")
 @Data
 public class ReferenceConfiguration {
 

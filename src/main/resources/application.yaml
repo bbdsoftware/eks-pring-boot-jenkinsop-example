@@ -27,10 +27,10 @@ service:
 
 logging:
   level:
-    com.bayport: INFO
+    com.bbdsoftware: INFO
     org.springframework: ERROR
 
-bayport.reference:
+bbdsoftware.reference:
   default-name: World
 
 ---
@@ -39,7 +39,7 @@ spring:
 
   logging:
     level:
-      com.bayport: INGO
+      com.bbdsoftware: INGO
       org.springframework: INFO
 ---
 spring:
@@ -52,7 +52,7 @@ spring:
   profiles: development
 logging:
   level:
-    com.bayport: DEBUG
+    com.bbdsoftware: DEBUG
     org.springframework: ERROR
 
 ---

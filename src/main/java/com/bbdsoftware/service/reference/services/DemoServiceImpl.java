@@ -71,7 +71,7 @@ public class DemoServiceImpl implements DemoService {
         }
 
         // Using injected log variable from @Slf4j
-        log.info("Saying hello to " + name);
+        log.info("Saying hello to {}", name);
 
         Greeting greeting = greetingRepository.save(new Greeting("Hello, " + name, LocalDateTime.now()));
 
