@@ -1,7 +1,7 @@
 podTemplate(
 containers: [
     containerTemplate(name: 'jnlp', image: 'jenkins/jnlp-slave:alpine'),
-    containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat')
+    containerTemplate(name: 'maven', image: 'maven:3.6.3-jdk-11', ttyEnabled: true, command: 'cat')
   ]) {
   node(POD_LABEL) {
     stage('Build a Maven project') {
