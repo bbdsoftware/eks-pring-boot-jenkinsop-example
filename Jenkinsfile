@@ -5,7 +5,7 @@ containers: [
   ]) {
   node(POD_LABEL) {
     stage('Build a Maven project') {
-      git 'https://github.com/kanzifucius/spring-boot-k8s-jenkinsop-example.git'
+      checkout scm
       container('maven') {
         sh 'mvn -B clean package'
       }
