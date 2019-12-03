@@ -7,6 +7,41 @@
 This is an example project used and referenced in the bellow repos
 Please see [Part 3 setting up CD ](https://github.com/bbdsoftware/eks-argo-cd) for details on how to deploy this application using argocd 
 
+## DOCKER
+You will need to add a kubernetes secrets for jenkins to pick up the docker credentials
+eg 
+
+```
+apiVersion: v1
+   kind: Secret
+   metadata:
+     name: dockerhub-creds
+   annotations:
+    "jenkins.io/credentials-description" : "credentials from Kubernetes"
+   stringData:
+     username: USER
+     password: PASSWORD
+   
+```
+
+**Reference**  
+1.See the repo for examples https://github.com/bbdsoftware/eks-jenkins-ci/tree/master/jenkins  
+2.https://jenkinsci.github.io/kubernetes-credentials-provider-plugin/
+
+You will also need to supply the image repo in your pom file
+
+```
+....
+            <configuration>
+                    <to>
+                        <image>docker.io/YOURDOCKERREPO/spring-boot-k8s-jenkinsop-example:${project.version}</image>
+                    </to>
+            </configuration>
+....            
+```                
+
+
+
 ### Starter Lib
 
 A starter library is used here for bootstrapping certain common requirements namely  

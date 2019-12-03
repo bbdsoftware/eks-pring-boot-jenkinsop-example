@@ -47,35 +47,12 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.deviceinsight.helm</groupId>
-                <artifactId>helm-maven-plugin</artifactId>
-                <version>2.1.0</version>
-                <configuration>
-                    <chartName>${project.artifactId}</chartName>
-                    <chartRepoUrl>http://helm-chartmuseum-chartmuseum.jenkinsci.svc.cluster.local:8080</chartRepoUrl>
-                    <chartFolder>charts/${project.artifactId}</chartFolder>
-                    <helmVersion>2.13.0</helmVersion>
-                    <strictLint>true</strictLint>
-                    <valuesFile>charts/${project.artifactId}/values.yaml</valuesFile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>package</goal>
-                            <goal>lint</goal>
-                            <goal>template</goal>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>1.6.1</version>
                 <configuration>
                     <to>
-                        <image>docker.io/kanzifucius/spring-boot-k8s-jenkinsop-example:${project.version}</image>
+                        <image>docker.io/YOURDOCKERREPO/spring-boot-k8s-jenkinsop-example:${project.version}</image>
                     </to>
                 </configuration>
             </plugin>
